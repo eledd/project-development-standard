@@ -13,6 +13,7 @@ EXPECTED_FILES = {
     "SKILL.md", "agents/openai.yaml", "references/change-workflows.md",
     "references/sensitive-chains.md", "references/coding-standard.md",
     "references/java-backend.md", "references/documentation.md",
+    "references/git-workflow.md",
 }
 
 
@@ -71,7 +72,8 @@ class SkillPackageTest(unittest.TestCase):
         self.assertEqual(visited, expected)
 
     def test_each_bundled_standard_is_required_by_reference_graph(self):
-        for name in ("coding-standard.md", "java-backend.md", "documentation.md"):
+        for name in ("coding-standard.md", "java-backend.md", "documentation.md",
+                     "git-workflow.md"):
             with self.subTest(standard=name):
                 file = self.root / "references" / name
                 content = file.read_text(encoding="utf-8")

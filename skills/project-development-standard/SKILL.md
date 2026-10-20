@@ -1,8 +1,8 @@
 ---
 name: project-development-standard
-description: 用于已有项目的需求分析、技术方案、接口与数据设计、功能开发、修复重构、联调测试、代码与方案评审、文档维护及发布准备；执行代码格式、命名、中文注释、日志和文档基础规范，并对齐项目约束。仅讨论或评审时不自动改代码，不用于脱离项目的泛技术问答。
+description: 用于已有项目的需求分析、技术方案、功能开发、修复重构、联调测试、代码与方案评审、文档维护、Git 分支创建与命名及发布准备；执行代码格式、中文注释、日志和文档基础规范，并对齐项目约束。仅讨论或评审时不自动改代码，不用于脱离项目的泛技术问答。
 metadata:
-  version: "2.2.0"
+  version: "2.3.0"
 ---
 
 # 项目开发流程与公共规范
@@ -22,6 +22,7 @@ metadata:
 - **需求与技术方案**：按[需求与方案流程](references/change-workflows.md#需求与方案任务)核查现状、约束、设计取舍和验收边界；用户仅要求讨论、设计或计划时，不自动修改代码或创建文档。
 - **代码开发、修复、重构或代码评审**：读取[编码规范](references/coding-standard.md)，再按[代码流程](references/change-workflows.md#代码任务)核查调用链与兼容性；涉及 Java 时另读[Java 规范](references/java-backend.md)。非 Java 任务不读取 Java 规范。
 - **文档编写、整理或文档评审**：读取[文档规范](references/documentation.md)，再按[文档流程](references/change-workflows.md#文档任务)确定用途、核对实现并维护引用。代码任务只在需要修改文档时追加读取。
+- **Git 分支创建、命名或工作分支选择**：读取[分支规范](references/git-workflow.md)，核对项目约定、创建授权、基线和已有分支；普通开发不因加载本 Skill 自动新建、切换或重命名分支。
 - **联调、验收与发布准备**：按[交付核查流程](references/change-workflows.md#联调验收与发布准备)核对契约、环境与上线前置条件；发布准备不等于已获部署授权。
 - **认证、安全或持久层变更**：再按[高风险链路检查](references/sensitive-chains.md)读取相关部分；其他任务不强制加载。
 - **仅审查**：先报告有依据的问题与验证边界，不因加载本 Skill 自动修改代码或创建评审文件。
