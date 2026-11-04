@@ -72,10 +72,13 @@ class SkillPackageTest(unittest.TestCase):
         self.assertEqual(visited, expected)
 
     def test_each_bundled_standard_is_required_by_reference_graph(self):
-        for name in ("coding-standard.md", "java-backend.md", "documentation.md",
-                     "git-workflow.md"):
+        standards = sorted(
+            name for name in EXPECTED_FILES
+            if name.startswith("references/") and name.endswith(".md")
+        )
+        for name in standards:
             with self.subTest(standard=name):
-                file = self.root / "references" / name
+                file = self.root / name
                 content = file.read_text(encoding="utf-8")
                 file.unlink()
                 self.assertTrue(any("引用缺失" in error
