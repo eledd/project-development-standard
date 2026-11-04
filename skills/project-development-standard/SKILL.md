@@ -2,7 +2,7 @@
 name: project-development-standard
 description: 用于已有项目的需求分析、技术方案、功能开发、修复重构、联调测试、代码与方案评审、文档维护、Git 分支创建与命名及发布准备；执行代码格式、中文注释、日志和文档基础规范，并对齐项目约束。仅讨论或评审时不自动改代码，不用于脱离项目的泛技术问答。
 metadata:
-  version: "2.4.0"
+  version: "2.5.0"
 ---
 
 # 项目开发流程与公共规范
@@ -21,8 +21,8 @@ metadata:
 
 - **需求与技术方案**：按[需求与方案流程](references/change-workflows.md#需求与方案任务)核查现状、约束、设计取舍和验收边界；用户仅要求讨论、设计或计划时，不自动修改代码或创建文档。
 - **代码开发、修复、重构或代码评审**：读取[编码规范](references/coding-standard.md)，再按[代码流程](references/change-workflows.md#代码任务)核查调用链与兼容性；涉及 Java 时另读[Java 规范](references/java-backend.md)。非 Java 任务不读取 Java 规范。
-- **文档编写、整理或文档评审**：读取[文档规范](references/documentation.md)，再按[文档流程](references/change-workflows.md#文档任务)确定用途、核对实现并维护引用。代码任务只在需要修改文档时追加读取。
-- **Git 分支创建、命名或工作分支选择**：读取[分支规范](references/git-workflow.md)，核对项目约定、创建授权、基线和已有分支；普通开发不因加载本 Skill 自动新建、切换或重命名分支。
+- **文档编写、整理或文档评审**：读取[文档规范](references/documentation.md)，再按[文档流程](references/change-workflows.md#文档任务)确定用途、核对实现并维护引用；无项目模板时套用 `assets/templates/` 下的最小骨架。代码任务只在需要修改文档时追加读取。
+- **Git 分支创建、命名或工作分支选择**：读取[分支规范](references/git-workflow.md)，核对项目约定、创建授权、基线和已有分支；候选名可用 `scripts/check_branch_name.py` 校验默认格式。普通开发不因加载本 Skill 自动新建、切换或重命名分支。
 - **联调、验收与发布准备**：按[交付核查流程](references/change-workflows.md#联调验收与发布准备)核对契约、环境与上线前置条件；发布准备不等于已获部署授权。
 - **认证、安全或持久层变更**：再按[高风险链路检查](references/sensitive-chains.md)读取相关部分；其他任务不强制加载。
 - **仅审查**：先报告有依据的问题与验证边界，不因加载本 Skill 自动修改代码或创建评审文件。
@@ -44,3 +44,11 @@ metadata:
 3. 更新受影响的权威文档与索引；项目有模板时沿用，无模板时参考文档规范的最小内容骨架，不生成无关章节或全套文档。具体目录和业务协议由项目确定。
 4. 仅运行已核实且获授权的检查入口；分清工作区、暂存快照及 CI 基线。没有检查工具时报告可执行的替代验证，不自动安装工具、修改暂存区或创建钩子。
 5. 交付时说明实际改动、适用规范及必要项目差异、兼容性影响、执行过的验证和遗留问题；未执行的测试、批准、CI 接入、推送和部署不能写成完成。格式或链接检查通过不等于注释准确、业务通过或安全审查完成。
+
+## 5. 示例
+
+- "结合当前项目梳理需求并设计技术方案，先不要改代码。" → 走[需求与方案流程](references/change-workflows.md#需求与方案任务)，只讨论与设计，不写代码。
+- "按项目规范实现这个需求，补充回归验证。" → 读[编码规范](references/coding-standard.md)，按[代码流程](references/change-workflows.md#代码任务)核查调用链与兼容性，完成后报告实际验证。
+- "检查本次 Java 改动的格式、中文注释和异常日志。" → 另读[Java 规范](references/java-backend.md)，仅检查与最小修复，不做无关重构。
+- "给本次缺陷修复命名并创建 Git 工作分支。" → 读[分支规范](references/git-workflow.md)，用 `scripts/check_branch_name.py` 校验候选名，确认基线与授权后创建。
+- "整理当前功能文档并核对代码。" → 读[文档规范](references/documentation.md)，套用 `assets/templates/` 骨架，不自动删除历史记录。

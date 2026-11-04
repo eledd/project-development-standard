@@ -2,7 +2,7 @@
 
 一个通用 Agent Skill，统一承接开发流程和代码格式、命名、中文注释、日志、Java、文档及 Git 工作分支规范。先发现项目约束，再按任务读取对应参考文件，核查兼容性并报告真实验证结果；不包含特定业务协议、内部地址或凭据。
 
-当前版本 `2.4.0`：技术方案与交付增加逐服务的改造、配置、部署范围核实，覆盖跨服务契约、部署顺序、混部兼容、验证和回滚；未核实项明确标注，不根据依赖关系推断所有服务都需部署。
+当前版本 `2.5.0`：新增分支名校验脚本 `scripts/check_branch_name.py` 与四份文档模板 `assets/templates/`，SKILL.md 补充示例，安装目录内补充 LICENSE.txt。
 
 发布仓库：`eledd/project-development-standard`。可安装目录为 `skills/project-development-standard/`。
 
@@ -16,7 +16,16 @@ project-development-standard/
 ├── skills/
 │   └── project-development-standard/
 │       ├── SKILL.md
+│       ├── LICENSE.txt
 │       ├── agents/openai.yaml
+│       ├── scripts/
+│       │   └── check_branch_name.py
+│       ├── assets/
+│       │   └── templates/
+│       │       ├── feature.md
+│       │       ├── api.md
+│       │       ├── design.md
+│       │       └── review.md
 │       └── references/
 │           ├── coding-standard.md
 │           ├── java-backend.md

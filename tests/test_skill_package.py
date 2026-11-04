@@ -10,10 +10,13 @@ from urllib.parse import unquote, urlsplit
 
 SOURCE = Path(__file__).resolve().parents[1] / "skills" / "project-development-standard"
 EXPECTED_FILES = {
-    "SKILL.md", "agents/openai.yaml", "references/change-workflows.md",
-    "references/sensitive-chains.md", "references/coding-standard.md",
-    "references/java-backend.md", "references/documentation.md",
-    "references/git-workflow.md",
+    "SKILL.md", "agents/openai.yaml", "LICENSE.txt",
+    "references/change-workflows.md", "references/sensitive-chains.md",
+    "references/coding-standard.md", "references/java-backend.md",
+    "references/documentation.md", "references/git-workflow.md",
+    "scripts/check_branch_name.py",
+    "assets/templates/feature.md", "assets/templates/api.md",
+    "assets/templates/design.md", "assets/templates/review.md",
 }
 
 
